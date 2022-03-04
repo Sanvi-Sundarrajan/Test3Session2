@@ -1,1 +1,98 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
 
+Breakpoint 1, main () at main.c:45
+45        f1=input_fraction();
+(gdb) step
+input_fraction () at main.c:8
+8       {
+(gdb) next
+10        printf("Enter the fraction inputs \n");
+(gdb) next
+Enter the fraction inputs 
+11        scanf("%d%d",&f.num,&f.den);
+(gdb) next
+1 2
+12        return f;
+(gdb) p f
+$1 = {num = 1, den = 2}
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:46
+46        f2=input_fraction();
+(gdb) step
+input_fraction () at main.c:8
+8       {
+(gdb) next
+10        printf("Enter the fraction inputs \n");
+(gdb) next
+Enter the fraction inputs 
+11        scanf("%d%d",&f.num,&f.den);
+(gdb) next
+1 4
+12        return f;
+(gdb) p f
+$2 = {num = 1, den = 4}
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:47
+47        f3=input_fraction();
+(gdb) step
+input_fraction () at main.c:8
+8       {
+(gdb) next
+10        printf("Enter the fraction inputs \n");
+(gdb) next
+Enter the fraction inputs 
+11        scanf("%d%d",&f.num,&f.den);
+(gdb) next
+3 4
+12        return f;
+(gdb) next
+18      }
+(gdb) next
+main () at main.c:48
+48        smallest=Smallest_fraction(f1,f2,f3);
+(gdb) step
+Smallest_fraction (f1=..., f2=..., f3=...) at main.c:20
+20      {
+(gdb) next
+21        int num1=f1.num*f2.den*f3.den;
+(gdb) next
+22        int num2=f2.num*f1.den*f3.den;
+(gdb) next
+23        int num3=f3.num*f1.den*f2.den;
+(gdb) next
+24        if(num1<num2&&num1<num3)
+(gdb) p num1 
+$3 = 16
+(gdb) p num2
+$4 = 8
+(gdb) p num3
+$5 = 24
+(gdb) next
+28        else if (num2<num3)
+(gdb) next
+30          return f2;
+(gdb) next
+37      }
+(gdb) next
+main () at main.c:49
+49        output(f1,f2,f3,smallest);
+(gdb) step
+output (f1=..., f2=..., f3=..., smallest=...) at main.c:39
+39      {
+(gdb) next
+40        printf("The smallest of %d/%d ,%d/%d,%d/%d is %d/%d",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,smallest.num,smallest.den);
+(gdb) next
+41      }
+(gdb) next
+main () at main.c:50
+50        return 0;
+(gdb) continue
+Continuing.
+The smallest of 1/2 ,1/4,3/4 is 1/4[Inferior 1 (process 1297) exited normally]
+(gdb) 

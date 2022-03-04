@@ -1,4 +1,4 @@
-/*1. Write a program to find sum of two fractions
+*num1/*1. Write a program to find sum of two fractions
 void input(int *num1, int *den1, int *num2, int *den2);
 void add(int num1,int den1, int num2, int den2, int *num3, int *den3);
 void output(int num1, int den1, int num2, int den2, int num3, int den3);
@@ -20,16 +20,16 @@ void add(int num1,int den1, int num2, int den2, int *num3, int *den3)
   *num3=(num1*den2)+(den1*num2);
   *den3=den1*den2;
 }
-int gcd(int num3,int den3)
+int gcd(int a,int b)
 {
   int gcd=1;
-  while(den3!=0)
+  while(b!=0)
   {
-    gcd=num3%den3;
-    num3=den3;
-    den3=gcd;
+    gcd=a%b;
+    a=b;
+    b=gcd;
   }
-  return num3;
+  return a;
 }
 void output(int num1, int den1, int num2, int den2, int num3, int den3,int gcd_no)
 {
