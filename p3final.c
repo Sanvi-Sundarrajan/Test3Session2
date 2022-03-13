@@ -5,40 +5,44 @@ void output(int n, int r, int result);
 
 */
 #include<stdio.h>
-int input_n_and_r(int n , int r)
+int input_n_and_r(int *n , int *r)
 {
-  printf("Enter values of n and r");
-  scanf("%d%d",&n,&r);
-  return r,n;
+  printf("Enter values of n\n");
+  scanf("%d",n);
+  printf("Enter values of r\n");
+  scanf("%d",r);
 }
-/*int fact_n(int a)
+/*
+float fact_n(int a)
 {
-  int fact=1;
-  for(i=2;i<=n;i++)
+  float fact=1;
+      for(int i=1;i<=a;i++)
     fact=fact*i;
   return fact;
 }
-int ncr(int n, int r)
+float ncr(int n, int r)
 {
-  return fact_n(n)/(fact_n(r))*(fact_n(n-r))
-}
-*/
+  float result=fact_n(n)/(fact_n(r)*fact_n(n-r));
+  return result;
+}*/
+
 int factnCr(int n,int r)
 {
   int result=1;
-  for(int i=1;i<r;i++)
-    result=result*((n-i+1)/i);
+  for(int i=1;i<=r;i++)
+  result=result*(n-i+1)/i;
   return result;
 }
 void output(int n,int r,int result)
 {
-  printf("%dC%d = %d",n,r,result);
+  printf("Value of %dC%d = %d\n",n,r,result);
 }
 int main()
 {
-  int n,r,result;
-  input_n_and_r(n,r);
-  result=factnCr(n,r);
+  int n,r;
+  input_n_and_r(&n,&r);
+  //float result=ncr(n,r);
+  int result=factnCr(n,r);
   output(n,r,result);
   return 0;
 }
